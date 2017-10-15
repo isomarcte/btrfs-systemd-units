@@ -1,5 +1,5 @@
 language: c # Not really, but it's the closest thing
-install: automake autoconf
+install: sudo apt-get install automake autoconf
 script:
   - sudo make install
   - sudo make uninstall
