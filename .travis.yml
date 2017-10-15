@@ -1,6 +1,7 @@
 language: c # Not really, but it's the closest thing
 install: sudo apt-get install automake autoconf
 script:
+  - sudo ./configure
   - sudo make install
   - sudo make uninstall
   - sudo make distcheck
