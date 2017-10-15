@@ -1,0 +1,20 @@
+[Unit]
+Description=Create a readonly snapshot a BTRFS filesystem.
+Documentation=man:btrfs-subvolume(8)
+Conflicts=btrfs-balance@.service btrfs-scrub@.service
+After=local-fs.target
+
+[Install]
+WantedBy=local-fs.target
+
+[Service]
+Environment=BTRFS_SNAPSHOT_PATH=/var/lib/btrfs-snapshots
+ExecStartPre=/usr/bin/install -d ${BTRFS_SNAPSHOT_PATH}
+ExecStart=/bin/sh -ec "/usr/bin/btrfs subvolume snapshot -r %I ${BTRFS_SNAPSHOT_PATH}/snapshot-%i-$(date -Iseconds)"
+
+# systemd.exec settings #
+IOSchedulingClass=idle
+CPUSchedulingPolicy=idle
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=BTRFS-Scrub

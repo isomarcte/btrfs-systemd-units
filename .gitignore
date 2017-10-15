@@ -1,0 +1,14 @@
+# AutoTools #
+aclocal.m4
+autom4te.cache/
+autoscan.log
+config.log
+Makefile
+config.status
+/*.tar.*
+/btrfs-systemd-daemons*/
+/btrfs-balance@.service
+/btrfs-scrub@.service
+/btrfs-scrub@.timer
+/btrfs-snapshot@.service
+/btrfs-snapshot@.timer

@@ -1,0 +1,6 @@
+language: c # Not really, but it's the closest thing
+install: automake autoconf
+script:
+  - sudo make install
+  - sudo make uninstall
+  - sudo make distcheck

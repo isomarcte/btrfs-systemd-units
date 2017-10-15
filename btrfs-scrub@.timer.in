@@ -1,0 +1,7 @@
+[Unit]
+Description=Timer for scrubbing a btrfs filesystem
+Documentation=man:btrfs-scrub(8)
+
+[Timer]
+OnCalendar=monthly
+Persistent=true

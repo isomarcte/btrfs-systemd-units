@@ -1,0 +1,18 @@
+[Unit]
+Description=Balance a BTRFS filesystem.
+Documentation=man:btrfs-balance(8)
+Conflicts=btrfs-scrub@.service
+
+[Service]
+ExecStart=/usr/bin/btrfs balance start -v %I
+ExecStop=/usr/bin/btrfs balance cancel %I
+ExecStopPost=/usr/bin/btrfs balance status -v %I
+
+# systemd.exec settings #
+IOSchedulingClass=idle
+CPUSchedulingPolicy=idle
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=BTRFS-Balance
+
+
