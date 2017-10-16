@@ -4,9 +4,9 @@ Documentation=man:btrfs-scrub(8)
 Conflicts=btrfs-balance@.service
 
 [Service]
-ExecStart=/usr/bin/btrfs scrub start -B -d  -c idle %I
-ExecStop=/usr/bin/btrfs scrub cancel %I
-ExecStopPost=/usr/bin/btrfs scrub status %I
+ExecStart=/bin/btrfs scrub start -B -d  -c idle %I
+ExecStop=/bin/btrfs scrub cancel %I
+ExecStopPost=/bin/btrfs scrub status %I
 
 # systemd.exec settings #
 IOSchedulingClass=idle

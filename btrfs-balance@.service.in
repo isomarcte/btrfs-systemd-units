@@ -4,9 +4,9 @@ Documentation=man:btrfs-balance(8)
 Conflicts=btrfs-scrub@.service
 
 [Service]
-ExecStart=/usr/bin/btrfs balance start -v %I
-ExecStop=/usr/bin/btrfs balance cancel %I
-ExecStopPost=/usr/bin/btrfs balance status -v %I
+ExecStart=/bin/btrfs balance start -v %I
+ExecStop=/bin/btrfs balance cancel %I
+ExecStopPost=/bin/btrfs balance status -v %I
 
 # systemd.exec settings #
 IOSchedulingClass=idle
