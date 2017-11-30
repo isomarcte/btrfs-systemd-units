@@ -10,11 +10,11 @@ WantedBy=local-fs.target
 [Service]
 Environment=BTRFS_SNAPSHOT_PATH=/var/lib/btrfs-snapshots
 ExecStartPre=/usr/bin/install -d ${BTRFS_SNAPSHOT_PATH}
-ExecStart=/bin/sh -ec "/bin/btrfs subvolume snapshot -r %I ${BTRFS_SNAPSHOT_PATH}/snapshot-%i-$(date -Iseconds)"
+ExecStart=/bin/sh -ec "/bin/btrfs subvolume snapshot -r %i ${BTRFS_SNAPSHOT_PATH}/snapshot-%i-$(date -Iseconds)"
 
 # systemd.exec settings #
 IOSchedulingClass=idle
 CPUSchedulingPolicy=idle
 StandardOutput=journal
 StandardError=journal
-SyslogIdentifier=BTRFS-Scrub
+SyslogIdentifier=BTRFS-Snapshot
